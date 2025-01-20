@@ -1,0 +1,163 @@
+// Variables - Background color
+$backColor: rgb(16, 103, 91);
+// Variable - Width-95%
+$width: 95%;
+
+// HTML Styling
+html {
+  background: rgb(8, 8, 8);
+  color: whitesmoke;
+}
+
+// Mixin - Flex Box Row
+@mixin flex-box-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Mixin - Flex Box Wrap-Wrap
+@mixin flex-box-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// Mixin - Flex Box - Center
+@mixin flex-box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Body Styling
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #131111;
+  text-align: center;
+  font-family: "Arial Narrow Bold", sans-serif;
+  font-weight: 500;
+}
+
+// Header Section Styling
+header {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1000px;
+  background: $backColor;
+  color: #fff;
+  padding-bottom: 1rem;
+
+  // Nested Header - H1 & H2 Section Styling
+  #header {
+    @include flex-box-row();
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  //  Nested Header Paragraph Styling
+  & > p {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+}
+
+// Main Section Styling
+main {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1000px;
+  background: $backColor;
+  padding-top: 2rem;
+  color: #fff;
+
+  // Nested Card Container Styling
+  #game-box {
+    margin: 0 auto;
+    @include flex-box-wrap();
+    gap: 1rem;
+    width: 85%;
+    max-width: 600px;
+    padding: 1rem 0 1rem 0;
+
+    // Nested Game-box - Card Styling
+    .card {
+      margin: 2px 2px 2px 2px;
+      margin: 0 auto;
+      height: 225px;
+      width: 150px;
+      @include flex-box-center();
+      flex-direction: row;
+      font-size: 4rem;
+      user-select: none;
+      background-color: grey;
+      background-image: url("/src/assets/file.jpg");
+      background-size: cover;
+      background-position: center;
+      color: transparent;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s, background-image 0.3s;
+
+      &.flipped {
+        background-color: #9b333c;
+        background-image: none; /* Remove the back image when flipped */
+        color: #fff; /* Reveal the content */
+      }
+
+      &.matched {
+        background-color: #95a5a6;
+        color: #fff;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+    // Nested Game-box - Card - Hover Styling
+    .card:hover {
+      background-color: #9b333c;
+      color: white;
+      box-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 0, 68),
+        0 0 5px rgb(139, 0, 14);
+    }
+  }
+
+  // H2 Styling
+  h2 {
+    font-size: 80px;
+    margin: 5px 0 0;
+  }
+}
+
+// Button Section Styling
+#btnSection {
+  padding: 1rem 0 3rem 0;
+  height: 100px;
+
+  // H3 Alert Styling
+  &h3 {
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  // Nested Button Styling
+  & > button {
+    padding: 10px 30px 10px 30px;
+    background-color: rgb(139, 0, 14);
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+
+    // Nested Button - Hover Styling
+    Nested Button Hover Styling &:hover {
+      background-color: gray;
+      color: white;
+      box-shadow: 1px 1px 2px black, 0 0 25px rgb(255, 0, 68),
+        0 0 5px rgb(139, 0, 14);
+    }
+  }
+}
