@@ -50,6 +50,18 @@ app.ticker.add(() => {
     
 })
 
+
+
+
+// ____ Create 4 Rectangles
+
+// ****    Can change to a For Each Loop ****
+// 1 - Create new graphic
+// 2 - Draw graphic
+// 3 - Append to to stage ?
+
+
+
 let topBorder = new PIXI.Graphics();
 
 let bottomBorder = new PIXI.Graphics();
@@ -60,10 +72,13 @@ let rightBorder = new PIXI.Graphics();
 
 
 
-// ____ Create 4 Rectangles
 
+
+// ____ Each Boarder will be colored a different color than the blue background
 
 //  Object Rectangle Properties
+
+//  Possile Do an Object Array Here *** ??
 
 const RectTop = {
     name: "Top",
@@ -111,7 +126,7 @@ const RectRight = {
 // Assignment Pseudo
 
 // ____ Each Rectangle Represents 1 Boarder
-// ____ Each Boarder will be colored a different color than the blue background
+
 // ____ Each boader will chage color when the circle collides with it
 // ____ Tha application should stop 
 
