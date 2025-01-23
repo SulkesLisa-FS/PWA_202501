@@ -28,6 +28,9 @@ let yv = 1
 
 
 
+
+
+
 // Add Motion to the Circle
 app.ticker.add(() => {
     // Check if Circle radious X goes past 800px  or is less than zero
@@ -47,10 +50,66 @@ app.ticker.add(() => {
     
 })
 
+let topBorder = new PIXI.Graphics();
+
+let bottomBorder = new PIXI.Graphics();
+
+let leftBorder = new PIXI.Graphics();
+
+let rightBorder = new PIXI.Graphics();
+
+
+
+// ____ Create 4 Rectangles
+
+
+//  Object Rectangle Properties
+
+const RectTop = {
+    name: "Top",
+    width: 800,
+    height: 800,
+    border: 2,
+    color: "#66B2FF", //  blue
+    hitColor:" #FF3333"  // Red
+
+
+} 
+
+const RectBottom = {
+    name: "Botton",
+    width: 800,
+    height: 800,
+    border: 2,
+    color: "#66B2FF", //  blue
+    hitColor:" #FF3333"  // Red
+
+} 
+
+const RectLeft = {
+    name: "Left",
+    width: 800,
+    height: 800,
+    border: 2,
+    color: "#66B2FF", //  blue
+    hitColor:" #FF3333"  // Red
+
+} 
+
+
+const RectRight = {
+    name: "Right",
+    width: 800,
+    height: 800,
+    border: 2,
+    color: "#66B2FF", //  blue
+    hitColor:" #FF3333"  // Red
+
+}
+
 
 // Assignment Pseudo
 
-// ____ Create 4 Rectangles
 // ____ Each Rectangle Represents 1 Boarder
 // ____ Each Boarder will be colored a different color than the blue background
 // ____ Each boader will chage color when the circle collides with it
