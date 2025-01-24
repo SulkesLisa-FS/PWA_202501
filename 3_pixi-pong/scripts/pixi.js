@@ -1,28 +1,94 @@
+// WEEK THREE ASSIGNMENT - PIXI PONG   (PIXI JS)
+
+
+
 // New PixiJS Application
 const app = new PIXI.Application();
+
+
 // Canvas color, width, and height
 await app.init({ backgroundColor: "rgb(22, 69, 85)", width: 800, height: 800 });
+
+
 // Append the canvas to the DOM body
 document.body.appendChild(app.canvas);
 // document.querySelector("#game").appendChild(app.canvas);
 
-// Draw the Circle Graphic
+
+
+// Draw the Circle Image 
 const circle = new PIXI.Graphics()
 circle.beginFill("#f5ef42")
 circle.drawCircle(0, 0, 6)
 circle.endFill()
 
 
-// Append the circle to the Canvas
+// Append the circle to the Canvas Stage
 app.stage.addChild(circle)
 
-// Initial Cordinates of the Circle on the Canvas
+// Initial Cordinates of the Circle on the Canvas - Near the center
 circle.x = 450
 circle.y = 350
 
-// Set the Circle's Velocity 
+// Set the Circle's Velocity & Change of Direction
 let xv = 2
 let yv = 1
+
+
+// ___________   RECTANGLE BORDER IMAGES
+
+
+
+// ____ Each Boarder will be colored a different color than the blue background
+
+//  Object Rectangle Properties
+
+
+// Create And Define the Border Properties
+// Name, x, y, width, height, default color, hit color
+const borders = [
+    {name: "top", x: 0, y: 0, width: 800, height: 5, color: 0xffffff, hitColor: 0xff00000},
+    
+    {name: "bottom", x: 0, y: 795, width: 795, height: 5, color: 0xffffff, hitColor: 0x0aefff},
+   
+    {name: "left", x: 0, y: 0, width: 5, height: 795, color: 0xffffff, hitColor: 0xff9a00},
+   
+    {name: "right", x: 795, y: 0, width: 5, height: 800, color: 0xffffff, hitColor: 0xffdd00},
+];
+
+
+
+
+
+
+
+
+// Contain the border images from the border loop 
+const borderImage = {};
+
+
+
+
+
+
+
+// ____ Create 4 Rectangles
+
+// ****    Can change to a For Each Loop ****
+// 1 - Create new graphic
+// 2 - Draw graphic
+// 3 - Append to to stage ?
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,12 +119,7 @@ app.ticker.add(() => {
 
 
 
-// ____ Create 4 Rectangles
 
-// ****    Can change to a For Each Loop ****
-// 1 - Create new graphic
-// 2 - Draw graphic
-// 3 - Append to to stage ?
 
 
 
@@ -74,11 +135,7 @@ let rightBorder = new PIXI.Graphics();
 
 
 
-// ____ Each Boarder will be colored a different color than the blue background
 
-//  Object Rectangle Properties
-
-//  Possile Do an Object Array Here *** ??
 
 const RectTop = {
     name: "Top",
