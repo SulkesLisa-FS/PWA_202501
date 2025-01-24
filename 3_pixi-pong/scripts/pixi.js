@@ -242,3 +242,15 @@ const promise = () => {
 
 
 }
+
+// Promis Resolve Check and Alert if - All 4 borders have been hit
+promiseCheck(message)// Resolve - Then: stop game and notify user
+    .then(message => {
+        // Stop the game
+        app.ticker.stop();
+        alert(message);
+    })
+
+    .catch(() => {
+        console.error("Error");
+    });
