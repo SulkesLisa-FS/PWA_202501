@@ -18,7 +18,7 @@ document.body.appendChild(app.canvas);
 
 // Draw the Circle Image 
 const circle = new PIXI.Graphics()
-circle.beginFill("#f5ef42")
+circle.beginFill(0xf5ef42)
 circle.drawCircle(0, 0, 6)
 circle.endFill()
 
@@ -42,9 +42,12 @@ let yv = 1
 // Create And Define the Border Properties
 // Name, x, y, width, height, default color, hit color
 const borders = [
-    {name: "top", x: 0, y: 0, width: 800, height: 5, color: 0xffffff, hitColor: 0xff00000},
+    {name: "top", x: 0, y: 0, width: 800, height: 5, color: 0xffffff, hitColor: 0xff0000},
+
     {name: "bottom", x: 0, y: 795, width: 795, height: 5, color: 0xffffff, hitColor: 0x0aefff},
+
     {name: "left", x: 0, y: 0, width: 5, height: 795, color: 0xffffff, hitColor: 0xff9a00},
+
     {name: "right", x: 795, y: 0, width: 5, height: 800, color: 0xffffff, hitColor: 0xffdd00},
 ];
 
@@ -57,6 +60,7 @@ borders.forEach(border => {
 
 // Instantiate a new graphic image of a rectangle
 const rect = new PIXI.Graphics();
+
 rect.beginFill(border.color);
 rect.drawRect(0,0, border.width, border.height);
 rect.endFill();
@@ -71,7 +75,7 @@ app.stage.addChild(rect);
 // Pass all the borders to the borderImage object
 borderImage[border.name] = rect;
 
-})
+});
 
 
 // Keep Track of What borders where hit
@@ -80,21 +84,23 @@ const hitBorders = new Set();
 
 // Show Hit Borders by changing their color
 
-// function showHitBorder(name) {
+function showHitBorder(name) {
 
-//     // Find the border properties in the border object array
-//     const border = borders.find(b => b.name === name);
+    // Find the border properties in the border object array
+    const border = borders.find(b => b.name === name);
 
-//     // Get the border object - clear and change color to show as hit
-//     if (border) { 
-//         const rect = borderImage[name];
-//         rect.clear();
-//         rect.beginFill(border.hitColor);
-//         rect.drawRect(0,0, border.width, border.height);
-//         rect.endFill();         
-//     }
+    // Get the border object - clear and change color to show as hit
+    if (border) { 
+        const rect = borderImage[name];
 
-// }
+        
+        rect.clear();
+        rect.beginFill(border.hitColor);
+        rect.drawRect(0,0, border.width, border.height);
+        rect.endFill();         
+    }
+
+}
 
 
 
@@ -112,7 +118,7 @@ function trackHits() {
 
     //  Track Top Border
     if(circle.y - 6 <= 6 && !hitBorders.as("top")) {
-        // showHitBorder("top");
+        showHitBorder("top");
         lastBorder = "top";
         hitBorders.add("top");
        
@@ -121,7 +127,7 @@ function trackHits() {
     // Track Botton Border
     if(circle.y + 6 >= 795) {
         lastBorder = "bottom";
-        // showHitBorder("botto");
+        showHitBorder("botto");
         hitBorders.add("bottom");
 
     }
@@ -129,7 +135,7 @@ function trackHits() {
     // Track Left Border
     if(circle.x - 6 <= 5) {
         lastBorder = "left";
-        // showHitBorder("left");
+        showHitBorder("left");
         hitBorders.add("left");
 
     }
@@ -141,17 +147,17 @@ function trackHits() {
         hitBorders.add("right");
     }
 
-    // return new Promise((resolve, reject) => {
-    //     if (hitBorders.size === 4) {
-    //         if (lastBorder) showHitBorder(lastBorder);
-    //         resolve("All borders have been hit!") // Resolve
-    //     }
-    //     else {
-    //         reject(); // Nothing to reject ? ____  Check This _____
-    //     }
+    return new Promise((resolve, reject) => {
+        if (hitBorders.size === 4) {
+            if (lastBorder) showHitBorder(lastBorder);
+            resolve("All borders have been hit!") // Resolve
+        }
+        else {
+            reject(); // Nothing to reject ? ____  Check This _____
+        }
 
 
-    // })
+    })
 
 
 
@@ -191,7 +197,24 @@ app.ticker.add(() => {
 
 
 
+// Create a promis
 
+
+// const promise = () => {
+
+// }
+
+// Promis Resolve Check and Alert if - All 4 borders have been hit
+// promiseCheck(message)// Resolve - Then: stop game and notify user
+//     .then(message => {
+//         // Stop the game
+//         app.ticker.stop();
+//         alert(message);
+//     })
+
+//     .catch(() => {
+//         console.error("Error");
+//     });
 
 
 
@@ -221,21 +244,4 @@ app.ticker.add(() => {
 
 
 
-// Create a promis
 
-
-// const promise = () => {
-
-// }
-
-// Promis Resolve Check and Alert if - All 4 borders have been hit
-// promiseCheck(message)// Resolve - Then: stop game and notify user
-//     .then(message => {
-//         // Stop the game
-//         app.ticker.stop();
-//         alert(message);
-//     })
-
-//     .catch(() => {
-//         console.error("Error");
-//     });
