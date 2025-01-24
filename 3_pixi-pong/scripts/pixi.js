@@ -31,7 +31,7 @@ circle.x = 450
 circle.y = 350
 
 // Set the Circle's Velocity & Change of Direction
-let xv = 2
+let xv = 1.5
 let yv = 1
 
 
@@ -95,7 +95,30 @@ borderImage[border.name] = rect;
 })
 
 
+// Check if the border has been hit
 
+function trackHits() {
+
+    // Check if Last Border
+    let lastBorder = null
+
+    // Set Conditinals for each border to check if hit
+
+    if(circle.y - 6 <= 10) {
+        lastBorder = "top"
+    }
+    if(circle.y + 6 <= 10) {
+        lastBorder = "bottom"
+    }
+    if(circle.x - 6 <= 10) {
+        lastBorder = "left"
+    }
+    if(circle.x + 6 <= 10) {
+        lastBorder = "right"
+    }
+
+
+}
 
 
 
