@@ -214,5 +214,31 @@ app.ticker.add(() => {
 // ____ Each Rectangle Represents 1 Boarder
 
 // ____ Each boader will chage color when the circle collides with it
+
 // ____ Tha application should stop 
 
+// You must use a Promise to achieve this .....
+// the application should stop only after the circle has bounced off all four borders.  
+//  The Promise will be responsible for ending the game once it resolves,
+// the Promise should resolve, and an alert should pop up to notify the user that the application has completed.
+
+
+
+// Create a promis
+
+
+const promise = () => {
+
+    return new Promise((resolve, reject) => {
+        if (hitBorders === 4) {
+            resolve("All borders have been hit!") // Resolve
+        }
+        else {
+            reject(); // Nothing to reject ? ____  Check This _____
+        }
+
+
+    })
+
+
+}
