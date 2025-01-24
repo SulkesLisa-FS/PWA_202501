@@ -95,7 +95,34 @@ borderImage[border.name] = rect;
 })
 
 
-// Check if the border has been hit
+// Keep Track of What borders where hit
+const hitBorders = new Set();
+
+
+// Show Hit Borders by changing their color
+
+function showHitBorder(name) {
+
+    // Find the border properties in the border object array
+    const border = borders.find(b => b.name === name);
+
+    // Get the border object - clear and change color to show as hit
+    if (border) {
+        const rect = borderGraphics[name];
+        rect.clear();
+        rect.beginFill(border.hitColor);
+        rect.drawRect(0,0, border.width, border.height);
+        rect.endFill();         
+    }
+
+}
+
+
+
+
+
+
+// CHECK if the 4 borders has been hit and call showHitBorder function
 
 function trackHits() {
 
@@ -104,17 +131,30 @@ function trackHits() {
 
     // Set Conditinals for each border to check if hit
 
-    if(circle.y - 6 <= 10) {
-        lastBorder = "top"
+    //  Track Top Border
+    if(circle.y - 6 <= 5) {
+        lastBorder = "top";
+        showHitBorder("top");
     }
-    if(circle.y + 6 <= 10) {
-        lastBorder = "bottom"
+
+    // Track Botton Border
+    if(circle.y + 6 >= 795) {
+        lastBorder = "bottom";
+        showHitBorder("botto");
+
     }
-    if(circle.x - 6 <= 10) {
-        lastBorder = "left"
+
+    // Track Left Border
+    if(circle.x - 6 <= 5) {
+        lastBorder = "left";
+        showHitBorder("left");
+
     }
-    if(circle.x + 6 <= 10) {
-        lastBorder = "right"
+
+    // Track Right Border
+    if(circle.x + 6 >= 795) {
+        lastBorder = "right";
+        showHitBorder("right");
     }
 
 
