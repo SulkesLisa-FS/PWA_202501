@@ -57,31 +57,42 @@ const borders = [
 ];
 
 
-
-
-
-
-
-
 // Contain the border images from the border loop 
 const borderImage = {};
 
-
-
-
-
-
-
 // ____ Create 4 Rectangles
 
-// ****    Can change to a For Each Loop ****
+// For Each Loop 
 // 1 - Create new graphic
 // 2 - Draw graphic
-// 3 - Append to to stage ?
+// 3 - Append to to stage 
 
 
 
+// Draw 4 rectangles and append to the stage
+borders.forEach(border => {
 
+// Instantiate a new graphic image of a rectangle
+const rect = new PIXI.Graphics();
+
+rect.beginFill(border.color);
+rect.drawRect(0,0, border.width, border.height);
+rect.endFill();
+
+
+// Set the cordinates of the rectangls on the canvas
+rect.x = border.x;
+rect.y = border.y;
+
+// Append the border to the stage
+app.stage.addChild(rect);
+
+// Pass all the borders to the borderImage object
+borderImage[border.name] = rect;
+
+
+
+})
 
 
 
@@ -123,13 +134,6 @@ app.ticker.add(() => {
 
 
 
-let topBorder = new PIXI.Graphics();
-
-let bottomBorder = new PIXI.Graphics();
-
-let leftBorder = new PIXI.Graphics();
-
-let rightBorder = new PIXI.Graphics();
 
 
 
@@ -137,47 +141,9 @@ let rightBorder = new PIXI.Graphics();
 
 
 
-const RectTop = {
-    name: "Top",
-    width: 800,
-    height: 800,
-    border: 2,
-    color: "#66B2FF", //  blue
-    hitColor:" #FF3333"  // Red
 
 
-} 
 
-const RectBottom = {
-    name: "Botton",
-    width: 800,
-    height: 800,
-    border: 2,
-    color: "#66B2FF", //  blue
-    hitColor:" #FF3333"  // Red
-
-} 
-
-const RectLeft = {
-    name: "Left",
-    width: 800,
-    height: 800,
-    border: 2,
-    color: "#66B2FF", //  blue
-    hitColor:" #FF3333"  // Red
-
-} 
-
-
-const RectRight = {
-    name: "Right",
-    width: 800,
-    height: 800,
-    border: 2,
-    color: "#66B2FF", //  blue
-    hitColor:" #FF3333"  // Red
-
-}
 
 
 // Assignment Pseudo
