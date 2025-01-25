@@ -159,10 +159,13 @@ function trackHits() {
 
         if (hitBorders.size === 4) {
 
-            // Highlight Boarder before Alert
+            // Highlight Boarder Before  the Alert
             if (hitBorders) showHitBorder(lastBorder);
-            // Resolve - Message - When all four borders are hit
-            resolve("All borders have been hit!"); 
+            // Resolve After border color change - When all four borders are hit
+            // Resolve - Message 
+            setTimeout(() => resolve("All borders have been hit!"), 200);
+            
+            
         }
         else {
             // Will continue as un-resolved. 
@@ -183,7 +186,10 @@ function trackHits() {
 
 
 
+// Variable to show and not show the Resolved Promis Alert
+// To fix the infinate loop and show only one time.
 
+let showAlert = true;
 
 
 
@@ -210,14 +216,22 @@ app.ticker.add(() => {
         .then(message => {
              // Stop the game
             app.ticker.stop();
-            // Resolve - Alert user that all borders have been hit
-            alert(message);
+            
+            if (showAlert === true) {
+                // Resolve - Alert user that all borders have been hit
+                alert(message);
+                showAlert = false;
+            }
+            
         })
+       
 
         .catch(() => {
             // console.error("Promise Not Resolved Yet");
             // Catch is to handle the rejected promise
             // The promise will be rejected untill all four borders are hit.
+
+            
         });
     
 });
