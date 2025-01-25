@@ -7,7 +7,8 @@ const app = new PIXI.Application();
 
 
 // Canvas color, width, and height
-await app.init({ backgroundColor: "rgb(22, 69, 85)", width: 800, height: 800 });
+await app.init({ 
+    backgroundColor: 0x164555, width: 800, height: 800 });
 
 
 // Append the canvas to the DOM body
@@ -17,22 +18,22 @@ document.body.appendChild(app.canvas);
 
 
 // Draw the Circle Image 
-const circle = new PIXI.Graphics()
-circle.beginFill(0xf5ef42)
-circle.drawCircle(0, 0, 6)
-circle.endFill()
+const circle = new PIXI.Graphics();
+circle.beginFill(0xf5ef42);
+circle.drawCircle(0, 0, 6);
+circle.endFill();
 
 
 // Append the circle to the Canvas Stage
-app.stage.addChild(circle)
+app.stage.addChild(circle);
 
 // Initial Cordinates of the Circle on the Canvas - Near the center
-circle.x = 450
-circle.y = 350
+circle.x = 450;
+circle.y = 350;
 
 // Set the Circle's Velocity & Change of Direction
-let xv = 1.5
-let yv = 1
+let xv = 1.5;
+let yv = 1;
 
 
 // ___________   RECTANGLE BORDER IMAGES
@@ -44,7 +45,7 @@ let yv = 1
 const borders = [
     {name: "top", x: 0, y: 0, width: 795, height: 5, color: 0xffffff, hitColor: 0xff0000},
 
-    {name: "bottom", x: 0, y: 795, width: 795, height: 5, color: 0xffffff, hitColor: 0x0aefff},
+    {name: "bottom", x: 0, y: 795, width: 800, height: 5, color: 0xffffff, hitColor: 0x0aefff},
 
     {name: "left", x: 0, y: 0, width: 5, height: 795, color: 0xffffff, hitColor: 0xff9a00},
 
@@ -111,49 +112,57 @@ function showHitBorder(name) {
 
 function trackHits() {
 
-    // Check if Last Border
-    let lastBorder = null
+    // Check if Last Border - Set value as undefined.
+    let lastBorder = null;
 
     // Set Conditinals for each border to check if hit
 
     //  Track Top Border
-    if(circle.y - 6 <= 6 && !hitBorders.has("top")) {
-        showHitBorder("top");
-        lastBorder = "top";
+    if(circle.y - 5 <= 5 && !hitBorders.has("top")) {
+        // Add hit border first - then show 
         hitBorders.add("top");
+        showHitBorder("top");
+        // Change lastBorder Value
+        lastBorder = "top";
+        
        
     }
 
     // Track Botton Border
-    if(circle.y + 6 >= 795 && !hitBorders.has("bottom")) {
+    if(circle.y + 5 >= 795 && !hitBorders.has("bottom")) {
+        hitBorders.add("bottom");
         lastBorder = "bottom";
         showHitBorder("bottom");
-        hitBorders.add("bottom");
+        
 
     }
 
     // Track Left Border
-    if(circle.x - 6 <= 5 && !hitBorders.has("left")) {
+    if(circle.x - 5 <= 5 && !hitBorders.has("left")) {
+        hitBorders.add("left");
         lastBorder = "left";
         showHitBorder("left");
-        hitBorders.add("left");
+        
 
     }
 
     // Track Right Border
-    if(circle.x + 6 >= 795 && !hitBorders.has("right")) {
+    if(circle.x + 5 >= 795 && !hitBorders.has("right")) {
+        hitBorders.add("right");
         lastBorder = "right";
         showHitBorder("right");
-        hitBorders.add("right");
+        
     }
 
     //  Return a promise to resolve when all four borders are hit.
     return new Promise((resolve, reject) => {
+
         if (hitBorders.size === 4) {
+
             // Highlight Boarder before Alert
-            if (lastBorder) showHitBorder(lastBorder);
+            if (hitBorders) showHitBorder(lastBorder);
             // Resolve - Message - When all four borders are hit
-            resolve("All borders have been hit!") 
+            resolve("All borders have been hit!"); 
         }
         else {
             // Will continue as un-resolved. 
@@ -165,7 +174,7 @@ function trackHits() {
 
 
 
-}
+};
 
 
 
@@ -197,19 +206,21 @@ app.ticker.add(() => {
 
     // Call Track Hits Funcion
     trackHits()
-        // Resolve = Then: stop game and notify user
+        // Resolve = Then: stop game      and notify user
         .then(message => {
              // Stop the game
             app.ticker.stop();
+            // Resolve - Alert user that all borders have been hit
             alert(message);
         })
 
         .catch(() => {
-            console.error("Error");
-        
+            // console.error("Promise Not Resolved Yet");
+            // Catch is to handle the rejected promise
+            // The promise will be rejected untill all four borders are hit.
         });
     
-})
+});
 
 
 
