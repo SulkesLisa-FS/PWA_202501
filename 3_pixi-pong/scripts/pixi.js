@@ -42,13 +42,13 @@ let yv = 1
 // Create And Define the Border Properties
 // Name, x, y, width, height, default color, hit color
 const borders = [
-    {name: "top", x: 0, y: 0, width: 800, height: 5, color: 0xffffff, hitColor: 0xff0000},
+    {name: "top", x: 0, y: 0, width: 795, height: 5, color: 0xffffff, hitColor: 0xff0000},
 
     {name: "bottom", x: 0, y: 795, width: 795, height: 5, color: 0xffffff, hitColor: 0x0aefff},
 
     {name: "left", x: 0, y: 0, width: 5, height: 795, color: 0xffffff, hitColor: 0xff9a00},
 
-    {name: "right", x: 795, y: 0, width: 5, height: 800, color: 0xffffff, hitColor: 0xffdd00},
+    {name: "right", x: 795, y: 0, width: 5, height: 795, color: 0xffffff, hitColor: 0xffdd00},
 ];
 
 
@@ -93,14 +93,14 @@ function showHitBorder(name) {
     if (border) { 
         const rect = borderImage[name];
 
-        
+        // Clear Rectangle Image - Redraw and use the hit color to show the border was hit. 
         rect.clear();
         rect.beginFill(border.hitColor);
         rect.drawRect(0,0, border.width, border.height);
         rect.endFill();         
-    }
+    };
 
-}
+};
 
 
 
@@ -117,7 +117,7 @@ function trackHits() {
     // Set Conditinals for each border to check if hit
 
     //  Track Top Border
-    if(circle.y - 6 <= 6 && !hitBorders.as("top")) {
+    if(circle.y - 6 <= 6 && !hitBorders.has("top")) {
         showHitBorder("top");
         lastBorder = "top";
         hitBorders.add("top");
@@ -125,15 +125,15 @@ function trackHits() {
     }
 
     // Track Botton Border
-    if(circle.y + 6 >= 795) {
+    if(circle.y + 6 >= 795 && !hitBorders.has("bottom")) {
         lastBorder = "bottom";
-        showHitBorder("botto");
+        showHitBorder("bottom");
         hitBorders.add("bottom");
 
     }
 
     // Track Left Border
-    if(circle.x - 6 <= 5) {
+    if(circle.x - 6 <= 5 && !hitBorders.has("left")) {
         lastBorder = "left";
         showHitBorder("left");
         hitBorders.add("left");
@@ -141,23 +141,27 @@ function trackHits() {
     }
 
     // Track Right Border
-    if(circle.x + 6 >= 795) {
+    if(circle.x + 6 >= 795 && !hitBorders.has("right")) {
         lastBorder = "right";
         showHitBorder("right");
         hitBorders.add("right");
     }
 
+    //  Return a promise to resolve when all four borders are hit.
     return new Promise((resolve, reject) => {
         if (hitBorders.size === 4) {
+            // Highlight Boarder before Alert
             if (lastBorder) showHitBorder(lastBorder);
-            resolve("All borders have been hit!") // Resolve
+            // Resolve - Message - When all four borders are hit
+            resolve("All borders have been hit!") 
         }
         else {
-            reject(); // Nothing to reject ? ____  Check This _____
+            // Will continue as un-resolved. 
+            reject(); 
         }
 
 
-    })
+    });
 
 
 
@@ -190,6 +194,20 @@ app.ticker.add(() => {
     // Move the Circle by its direction/velocity
     circle.x += xv;
     circle.y += yv; 
+
+    // Call Track Hits Funcion
+    trackHits()
+        // Resolve = Then: stop game and notify user
+        .then(message => {
+             // Stop the game
+            app.ticker.stop();
+            alert(message);
+        })
+
+        .catch(() => {
+            console.error("Error");
+        
+        });
     
 })
 
@@ -197,24 +215,9 @@ app.ticker.add(() => {
 
 
 
-// Create a promis
 
 
-// const promise = () => {
 
-// }
-
-// Promis Resolve Check and Alert if - All 4 borders have been hit
-// promiseCheck(message)// Resolve - Then: stop game and notify user
-//     .then(message => {
-//         // Stop the game
-//         app.ticker.stop();
-//         alert(message);
-//     })
-
-//     .catch(() => {
-//         console.error("Error");
-//     });
 
 
 
