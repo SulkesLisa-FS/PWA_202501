@@ -69,7 +69,7 @@ const trackHits =() => {
         hitBorders.add("top"); // Add hit border first - then show 
         showHitBorder("top"); // Change lastBorder Value
         lastBorder = "top";}
-    // Track Botton Border
+    // Track Bottom Border
     if(circle.y + 6.5 >= 795 && !hitBorders.has("bottom")) {
         hitBorders.add("bottom");
         lastBorder = "bottom";
