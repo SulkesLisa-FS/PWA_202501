@@ -1,5 +1,3 @@
-
-
 // TEST - IMPORT AND EXPORT OF FUNCIONS
 const sum = (a,b) => a + b;
 
@@ -10,8 +8,15 @@ const sum = (a,b) => a + b;
 const sumOfArray = (arr) => arr.reduce((sum, num) => sum + num, 0);
 
 
+// FUNCTION TWO ______________________________
+
+let arr = [22, 43, 55, 99]
+
+// Takes an array of numbers and returns the larges number
+const findMax = (arr) => Math.max(...array)
 
 
 
 
-module.exports = {sum, sumOfArray};
+
+module.exports = {sum, sumOfArray, findMax};

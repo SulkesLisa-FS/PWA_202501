@@ -24,13 +24,4 @@ test('Test sumOfArray() - Returns the sum of all numbers', () => {
   // Expect Array with mixed numbers 2, -4, 6 to Return 0
   expect(sumOfArray([2, -4, 6])).toBe(4);
   // Expect Array with mixed numbers & Decimals 4, -2, 4.5, -1.3 Return Close to 5.2
-
-
-
-
-
-
-
-
-
 })
