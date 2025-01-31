@@ -19,7 +19,10 @@ test('Test sumOfArray() - Returns the sum of all numbers', () => {
   expect(sumOfArray([-2.5, -3.5, -1.3])).toBeCloseTo(-7.3);
   // Expect Array that is empty to Return 0
   expect(sumOfArray([])).toBe(0);
-  
+  // Expect Array with single number of 125 to Return 125
+  expect(sumOfArray([125])).toBe(125);
+
+
 
 
 
