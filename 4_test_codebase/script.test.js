@@ -17,6 +17,9 @@ test('Test sumOfArray() - Returns the sum of all numbers', () => {
   expect(sumOfArray([2.5, 3.5, 1.3])).toBeCloseTo(7.3);
   // Expect Negative Floating point -2.5, -3.5, -1.3 to Return Close To -7.3
   expect(sumOfArray([-2.5, -3.5, -1.3])).toBeCloseTo(-7.3);
+  // Expect Array that is empty to Return 0
+  expect(sumOfArray([])).toBe(0);
+  
 
 
 
