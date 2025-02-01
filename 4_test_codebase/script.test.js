@@ -62,5 +62,7 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   expect(isPalindrome(' Wow!, wow! ')).toBe(true);
   // Expect empty string - to be true
   expect(isPalindrome('')).toBe(true);
+  // Expect none palindrome string - to be false
+  expect(isPalindrome('word')).toBe(false);
 
 })
