@@ -14,7 +14,13 @@ const sumOfArray = (arr) => arr.reduce((sum, num) => sum + num, 0);
 const findMax = (arr) => Math.max(...arr)
 
 
+// FUNCTION THREE ______________________________
+
+// Checks if the input string is a palindrome
+const isPalindrome = (str) => {
+    const string = str.toLowerCase().replace(/[\w+]/g, '');
+    return string === string.split('').reverse().join('');
+}
 
 
-
-module.exports = {sum, sumOfArray, findMax};
+module.exports = {sum, sumOfArray, findMax, isPalindrome};
