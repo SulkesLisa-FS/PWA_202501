@@ -78,6 +78,8 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   // Expect lowercase words - Return the first letter of each word as capital
   expect(capitalizedWords('eat pizza')).toMatch('Eat Pizza');
 
+  // Expect single word - Return the first letter as capital
+  expect(capitalizedWords('pizza')).toMatch('Pizza');
 
 
 
