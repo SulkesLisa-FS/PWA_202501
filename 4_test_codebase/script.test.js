@@ -1,4 +1,4 @@
-const {sum, sumOfArray, findMax} = require('./script'); 
+const {sum, sumOfArray, findMax, isPalindrome} = require('./script'); 
 
 // TEST - IMPORT AND EXPORT OF FUNCIONS
 test('Test sum: add 5 + 10 equals 15', () => {
@@ -44,4 +44,14 @@ expect(findMax([1000])).toBe(1000);
 expect(findMax([68, -125, 97, 8.7])).toBe(97);
 // Expect Array of strings ['68', '-125', 97, 99.3] to return close to 99.3
 expect(findMax(['68', '-125', '97', '99.7'])).toBeCloseTo(99.7);
+})
+
+// FUNCTION THREE ______________________________
+
+test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
+
+  // Expect longer palindrome string - to be true
+  expect(isPalindrome('Was it a cat I saw')).toBe(true);
+
+
 })
