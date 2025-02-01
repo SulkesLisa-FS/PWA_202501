@@ -23,4 +23,12 @@ const isPalindrome = (str) => {
 }
 
 
-module.exports = {sum, sumOfArray, findMax, isPalindrome};
+// FUNCTION THREE ______________________________
+
+//returns a new string where the first letter of each word is capitalized.
+const capitalizedWords = (str) => str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+
+
+
+
+module.exports = {sum, sumOfArray, findMax, isPalindrome, capitalizedWords };

@@ -1,4 +1,4 @@
-const {sum, sumOfArray, findMax, isPalindrome} = require('./script'); 
+const {sum, sumOfArray, findMax, isPalindrome, capitalizedWords } = require('./script'); 
 
 // TEST - IMPORT AND EXPORT OF FUNCIONS
 test('Test sum: add 5 + 10 equals 15', () => {
