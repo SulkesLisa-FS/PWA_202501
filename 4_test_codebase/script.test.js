@@ -58,6 +58,7 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   expect(isPalindrome('if I had a hiFi')).toBe(true);
   // Expect numbers palindrome string - to be true
   expect(isPalindrome('12344321')).toBe(true);
-
+  // Expect spaces, commas and exclamation used with palinddrome  - to be true
+  expect(isPalindrome('Wow!, wow!')).toBe(true);
 
 })

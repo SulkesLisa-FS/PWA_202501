@@ -18,7 +18,7 @@ const findMax = (arr) => Math.max(...arr)
 
 // Checks if the input string is a palindrome
 const isPalindrome = (str) => {
-    const string = str.toLowerCase().replace(/[\w+]/g, '');
+    const string = str.toLowerCase().replace(/[\w+ ]/g, '');
     return string === string.split('').reverse().join('');
 }
 
