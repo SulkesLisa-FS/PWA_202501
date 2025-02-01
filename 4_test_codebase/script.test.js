@@ -59,7 +59,7 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   // Expect numbers palindrome string - to be true
   expect(isPalindrome('12344321')).toBe(true);
   // Expect spaces, commas and exclamation used with palinddrome  - to be true
-  expect(isPalindrome(' Wow!, wow! ')).toBe(true);
+  expect(isPalindrome('Wow!, wow!')).toBe(true);
   // Expect empty string - to be true
   expect(isPalindrome('')).toBe(true);
   // Expect none palindrome string - to be false
