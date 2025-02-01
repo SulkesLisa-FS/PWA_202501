@@ -87,6 +87,7 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   // Expect mixed letter cases - Return first letter of each word as capital and the rest of the letters lowercase
   expect(capitalizedWords('i eAT PiZzA')).toMatch('I Eat Pizza');
 
-
+  // Expect spaces - Return equal spaces
+  expect(capitalizedWords('spicy  sweet  ')).toBe('Spicy  Sweet  ');
 
 })
