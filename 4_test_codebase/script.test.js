@@ -96,4 +96,10 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   // Expect all capital letters - Return first letter of each word as capital and the rest of the lettes lowercase
   expect(capitalizedWords('THANK YOU!')).toMatch('Thank You!');
 
+  // Expected string - to Match string in regex
+  expect(capitalizedWords(' this string ')).toMatch(/This String/);
+
+  // Expected string - to Match regex
+  expect(capitalizedWords('this is test 4')).toMatch(/\b[A-Z][a-z]*\b/g);
+
 })
