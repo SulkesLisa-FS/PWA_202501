@@ -48,5 +48,6 @@ expect(findMax([1000])).toBe(1000);
 // Expect Array Mix [68, -125, 97, 8.7] to Return 97
 expect(findMax([68, -125, 97, 8.7])).toBe(97);
 
-
+// Expect Array of strings ['68', '-125', 97, 99.3] to return close to 99.3
+expect(findMax(['68', '-125', '97', '99.7'])).toBeCloseTo(99.7);
 })
