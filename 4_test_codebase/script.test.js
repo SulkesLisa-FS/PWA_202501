@@ -64,5 +64,8 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   expect(isPalindrome('')).toBe(true);
   // Expect none palindrome string - to be false
   expect(isPalindrome('word')).toBe(false);
-
+  // Expect none palindrome number string - to be false
+  expect(isPalindrome('1234')).toBe(false);
+  // Expect a single character string - to be true
+  expect(isPalindrome('A')).toBe(true);
 })
