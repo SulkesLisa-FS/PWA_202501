@@ -56,6 +56,8 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   expect(isPalindrome('Sas')).toBe(true);
   // Expect upper and lower case palindrom string - to be true
   expect(isPalindrome('if I had a hiFi')).toBe(true);
+  // Expect numbers palindrome string - to be true
+  expect(isPalindrome('12344321')).toBe(true);
 
 
 })
