@@ -81,6 +81,9 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   // Expect single word - Return the first letter as capital
   expect(capitalizedWords('pizza')).toMatch('Pizza');
 
+  // Expect empty string - Return empty string
+  expect(capitalizedWords('')).toMatch('');
+
 
 
 })
