@@ -93,4 +93,7 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   //Expect special characters - Return special characters
   expect(capitalizedWords('hOt-cheese!, spIcy! pepperOni!')).toMatch('Hot-cheese!, Spicy! Pepperoni!');
 
+  // Expect all capital letters - Return first letter of each word as capital and the rest of the lettes lowercase
+  expect(capitalizedWords('THANK YOU!')).toMatch('Thank You!');
+
 })
