@@ -23,9 +23,9 @@ const isPalindrome = (str) => {
 }
 
 
-// FUNCTION THREE ______________________________
+// FUNCTION FOUR ______________________________
 
-//returns a new string where the first letter of each word is capitalized.
+//returns a new string where the first letter of each word is capitalized and the rest of the letters in the word are lowercase.
 const capitalizedWords = (str) => str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 
 

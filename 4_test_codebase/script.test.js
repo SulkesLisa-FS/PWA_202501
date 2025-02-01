@@ -69,3 +69,16 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   // Expect a single character string - to be true
   expect(isPalindrome('A')).toBe(true);
 })
+
+
+// FUNCTION FOUR ______________________________
+
+test('Test captializeWords() - Returns first letter of each word as capital', () => {
+
+  // Expect lowercase words - Return the first letter of each word as capital
+  expect(capitalizedWords('eat pizza')).toMatch('Eat Pizza');
+
+
+
+
+})
