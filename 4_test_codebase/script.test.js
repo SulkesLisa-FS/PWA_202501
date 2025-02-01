@@ -39,8 +39,14 @@ expect(findMax([-68, -125, -97, -87])).toBe(-68);
 // Expect Array of [6.8, 1.25, 9.7, 8.7] to Return Close to 9.7
 expect(findMax([6.8, 1.25, 9.7, 8.7])).toBeCloseTo(9.7);
 
-// Expect Empty Arry [ ] to return -infinity
+// Expect Empty Arry [ ] to Return -infinity
 expect(findMax([])).toBe(-Infinity);
+
+// Expect Array of [1000] single - to Return 1000
+expect(findMax([1000])).toBe(1000);
+
+// Expect Array Mix [68, -125, 97, 8.7] to Return 97
+expect(findMax([68, -125, 97, 8.7])).toBe(97);
 
 
 })

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1738424775724" clover="3.2.0">
-  <project timestamp="1738424775724" name="All files">
+<coverage generated="1738425340575" clover="3.2.0">
+  <project timestamp="1738425340575" name="All files">
     <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="8" coveredelements="8" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
     <file name="script.js" path="/Users/lpsmac/Desktop/lpsDemo/DEMOS/12_PWA/repo/Assignment_Repo/PWA_202501/4_test_codebase/script.js">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
       <line num="8" count="17" type="stmt"/>
-      <line num="14" count="4" type="stmt"/>
+      <line num="14" count="6" type="stmt"/>
       <line num="20" count="1" type="stmt"/>
     </file>
   </project>
