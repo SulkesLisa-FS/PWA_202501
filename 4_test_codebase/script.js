@@ -11,7 +11,7 @@ const sumOfArray = (arr) => arr.reduce((sum, num) => sum + num, 0);
 // FUNCTION TWO ______________________________
 
 // Takes an array of numbers and returns the larges number
-const findMax = (arr) => Math.max(...array)
+const findMax = (arr) => Math.max(...arr)
 
 
 

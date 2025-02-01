@@ -1,4 +1,4 @@
-const {sum, sumOfArray} = require('./script'); 
+const {sum, sumOfArray, findMax} = require('./script'); 
 
 // TEST - IMPORT AND EXPORT OF FUNCIONS
 test('Test sum: add 5 + 10 equals 15', () => {
@@ -24,4 +24,21 @@ test('Test sumOfArray() - Returns the sum of all numbers', () => {
   // Expect Array with mixed numbers 2, -4, 6 to Return 0
   expect(sumOfArray([2, -4, 6])).toBe(4);
   // Expect Array with mixed numbers & Decimals 4, -2, 4.5, -1.3 Return Close to 5.2
+})
+
+// FUNCTION TWO ______________________________
+
+test('Test findMax() - Returns the largest number in the array', () => {
+
+// Expect Array of [68, 125, 97, 87] to Return 125
+expect(findMax([68, 125, 97, 87 ])).toBe(125);
+
+// Expect Array of [-68, -125, -97, -87] to Return -68
+expect(findMax([-68, -125, -97, -87])).toBe(-68);
+
+
+
+
+
+
 })
