@@ -90,4 +90,7 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
   // Expect spaces - Return equal spaces
   expect(capitalizedWords('spicy  sweet  ')).toBe('Spicy  Sweet  ');
 
+  //Expect special characters - Return special characters
+  expect(capitalizedWords('hOt-cheese!, spIcy! pepperOni!')).toMatch('Hot-cheese!, Spicy! Pepperoni!');
+
 })
