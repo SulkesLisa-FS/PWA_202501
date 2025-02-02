@@ -29,6 +29,8 @@ const isPalindrome = (str) => {
 const capitalizedWords = (str) => str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 
 
+// FUNCTION FIVE ______________________________
+// Extra 
+const purgeDuplicates = (arr) => [...new Set(arr)];
 
-
-module.exports = {sum, sumOfArray, findMax, isPalindrome, capitalizedWords };
+module.exports = {sum, sumOfArray, findMax, isPalindrome, capitalizedWords, purgeDuplicates  };

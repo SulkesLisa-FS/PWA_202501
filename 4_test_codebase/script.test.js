@@ -1,4 +1,4 @@
-const {sum, sumOfArray, findMax, isPalindrome, capitalizedWords } = require('./script'); 
+const {sum, sumOfArray, findMax, isPalindrome, capitalizedWords, purgeDuplicates  } = require('./script'); 
 
 // TEST - IMPORT AND EXPORT OF FUNCIONS
 test('Test sum: add 5 + 10 equals 15', () => {
@@ -101,5 +101,15 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
 
   // Expected string - to Match regex
   expect(capitalizedWords('this is test 4')).toMatch(/\b[A-Z][a-z]*\b/g);
+
+})
+
+// FUNCTION FIVE ______________________________
+// Extra 
+
+test('Test purgeDuplicates() - Return a new array with no duplicate values', () => {
+
+// Expect number array - Returns a new array with no duplicate values
+expect(purgeDuplicates([22, 34, 7, 22, 56, 7, 34])).toEqual([22, 34, 7, 56]);
 
 })
