@@ -112,4 +112,10 @@ test('Test purgeDuplicates() - Return a new array with no duplicate values', () 
 // Expect number array - Returns a new array with no duplicate values
 expect(purgeDuplicates([22, 34, 7, 22, 56, 7, 34])).toEqual([22, 34, 7, 56]);
 
+// Expect string of words - Returns a new array with no duplicate values
+expect(purgeDuplicates(['a', 'cat', 'a', 'mouse', 'a', 'dog'])).toEqual(['a', 'cat', 'mouse', 'dog']);
+
+// Expect a mix of numbes and strings - Return a new array with no duplicate values
+expect(purgeDuplicates(['a', 1, 'cat', 'Ouch!', 44, 'a', 'A', 'dog', 1, 'A'])).toEqual(['a', 1, 'cat', 'Ouch!', 44, 'A', 'dog']);
+
 })
