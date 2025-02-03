@@ -124,4 +124,7 @@ expect(purgeDuplicates(['a', 'c', 'A', 'A', 'c', 'C'])).toEqual(['a', 'c', 'A', 
 // Expect empty array - Return empty array
 expect(purgeDuplicates([])).toEqual([]);
 
+// Expect single string array - Return a single string array
+expect(purgeDuplicates(['C'])).toEqual(['C']);
+
 })
