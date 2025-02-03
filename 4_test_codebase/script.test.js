@@ -121,4 +121,7 @@ expect(purgeDuplicates(['a', 1, 'cat', 'Ouch!', 44, 'a', 'A', 'dog', 1, 'A'])).t
 // Expect string of mixed case letters - Return a new array with no duplicates
 expect(purgeDuplicates(['a', 'c', 'A', 'A', 'c', 'C'])).toEqual(['a', 'c', 'A', 'C']);
 
+// Expect empty array - Return empty array
+expect(purgeDuplicates([])).toEqual([]);
+
 })
