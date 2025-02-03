@@ -10,7 +10,7 @@ const sumOfArray = (arr) => arr.reduce((sum, num) => sum + num, 0);
 
 // FUNCTION TWO ______________________________
 
-// Takes an array of numbers and returns the larges number
+// Takes an array of numbers and returns the largest number
 const findMax = (arr) => Math.max(...arr)
 
 
@@ -32,5 +32,7 @@ const capitalizedWords = (str) => str.split(' ').map(word => word.charAt(0).toUp
 // FUNCTION FIVE ______________________________
 // Extra 
 const purgeDuplicates = (arr) => [...new Set(arr)];
+
+
 
 module.exports = {sum, sumOfArray, findMax, isPalindrome, capitalizedWords, purgeDuplicates  };
