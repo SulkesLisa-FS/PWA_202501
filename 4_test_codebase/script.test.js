@@ -1,6 +1,6 @@
 const {sum, sumOfArray, findMax, isPalindrome, capitalizedWords, purgeDuplicates  } = require('./script'); 
 
-// TEST - IMPORT AND EXPORT OF FUNCIONS
+// TEST - IMPORT AND EXPORT OF FUNCTIONS
 test('Test sum: add 5 + 10 equals 15', () => {
   expect(sum(5, 10)).toBe(15);
 });
@@ -15,7 +15,7 @@ test('Test sumOfArray() - Returns the sum of all numbers', () => {
   expect(sumOfArray([-2, -4, -6])).toBe(-12)
   // Expect Floating point 2.5, 3.5, 1.3 to Return Close To 7.3
   expect(sumOfArray([2.5, 3.5, 1.3])).toBeCloseTo(7.3);
-  // Expect Negative Floating point -2.5, -3.5, -1.3 to Return Close To -7.3
+  // Expect Negative Floating points -2.5, -3.5, -1.3 to Return Close To -7.3
   expect(sumOfArray([-2.5, -3.5, -1.3])).toBeCloseTo(-7.3);
   // Expect Array that is empty to Return 0
   expect(sumOfArray([])).toBe(0);
@@ -54,11 +54,11 @@ test('Test isPalindrome() - Checks if palindrome Returns True or False', () => {
   expect(isPalindrome('Was it a cat I saw')).toBe(true);
   // Expect simple palindrome string - to be true
   expect(isPalindrome('Sas')).toBe(true);
-  // Expect upper and lower case palindrom string - to be true
+  // Expect upper and lower case palindrome string - to be true
   expect(isPalindrome('if I had a hiFi')).toBe(true);
   // Expect numbers palindrome string - to be true
   expect(isPalindrome('12344321')).toBe(true);
-  // Expect spaces, commas and exclamation used with palinddrome  - to be true
+  // Expect spaces, commas and exclamation used with palindrome - to be true
   expect(isPalindrome('Wow!, wow!')).toBe(true);
   // Expect empty string - to be true
   expect(isPalindrome('')).toBe(true);
@@ -77,57 +77,40 @@ test('Test captializeWords() - Returns first letter of each word as capital', ()
 
   // Expect lowercase words - Return the first letter of each word as capital
   expect(capitalizedWords('eat pizza')).toMatch('Eat Pizza');
-
   // Expect single word - Return the first letter as capital
   expect(capitalizedWords('pizza')).toMatch('Pizza');
-
   // Expect empty string - Return empty string
   expect(capitalizedWords('')).toMatch('');
-
   // Expect mixed letter cases - Return first letter of each word as capital and the rest of the letters lowercase
   expect(capitalizedWords('i eAT PiZzA')).toMatch('I Eat Pizza');
-
   // Expect spaces - Return equal spaces
   expect(capitalizedWords('spicy  sweet  ')).toBe('Spicy  Sweet  ');
-
   //Expect special characters - Return special characters
   expect(capitalizedWords('hOt-cheese!, spIcy! pepperOni!')).toMatch('Hot-cheese!, Spicy! Pepperoni!');
-
-  // Expect all capital letters - Return first letter of each word as capital and the rest of the lettes lowercase
+  // Expect all capital letters - Return first letter of each word as capital and the rest of the letters lowercase
   expect(capitalizedWords('THANK YOU!')).toMatch('Thank You!');
-
   // Expected string - to Match string in regex
   expect(capitalizedWords(' this string ')).toMatch(/This String/);
-
   // Expected string - to Match regex
   expect(capitalizedWords('this is test 4')).toMatch(/\b[A-Z][a-z]*\b/g);
-
 })
 
 // FUNCTION FIVE ______________________________
 // Extra 
 
 test('Test purgeDuplicates() - Return a new array with no duplicate values', () => {
-
 // Expect number array - Returns a new array with no duplicate values
 expect(purgeDuplicates([22, 34, 7, 22, 56, 7, 34])).toEqual([22, 34, 7, 56]);
-
 // Expect string of words - Returns a new array with no duplicate values
 expect(purgeDuplicates(['a', 'cat', 'a', 'mouse', 'a', 'dog'])).toEqual(['a', 'cat', 'mouse', 'dog']);
-
 // Expect a mix of numbes and strings - Return a new array with no duplicate values
 expect(purgeDuplicates(['a', 1, 'cat', 'Ouch!', 44, 'a', 'A', 'dog', 1, 'A'])).toEqual(['a', 1, 'cat', 'Ouch!', 44, 'A', 'dog']);
-
 // Expect string of mixed case letters - Return a new array with no duplicates
 expect(purgeDuplicates(['a', 'c', 'A', 'A', 'c', 'C'])).toEqual(['a', 'c', 'A', 'C']);
-
 // Expect empty array - Return empty array
 expect(purgeDuplicates([])).toEqual([]);
-
 // Expect single string array - Return a single string array
 expect(purgeDuplicates(['C'])).toEqual(['C']);
-
 // Expect empty stirng  array - Return an single empty string array
 expect(purgeDuplicates([' ', ' '])).toEqual([' ']);
-
 })
